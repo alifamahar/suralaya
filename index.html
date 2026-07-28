@@ -971,7 +971,7 @@
                 </div>
             </div>
 
-            <a href="#contact-cta" class="nav-wa">Hit Us Up!</a>
+            <a href="#contact-cta" class="nav-wa" id="hitUsUpBtn">Hit Us Up!</a>
         </nav>
     </header>
 
@@ -1292,6 +1292,26 @@
                 video.src = '';
             }, 300);
         }
+
+        // Audio untuk tombol Hit Us Up
+        const hitUsUpBtn = document.getElementById('hitUsUpBtn');
+        const hitSound = new Audio('udah-siap-belomm.mp3');
+        
+        // Pastikan audio tidak looping
+        hitSound.loop = false;
+
+        hitUsUpBtn.addEventListener('click', function(e) {
+            // Cek apakah audio sedang tidak diputar
+            // Ini mencegah suara menumpuk (no repeat/overlap) jika diklik berkali-kali
+            if (hitSound.paused) {
+                hitSound.play();
+            } else {
+                // (Opsional) Jika ingin mereset suara dari awal setiap kali diklik, 
+                // hapus if(hitSound.paused) dan gunakan:
+                // hitSound.currentTime = 0;
+                // hitSound.play();
+            }
+        });
     </script>
 </body>
 </html>
