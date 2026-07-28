@@ -990,7 +990,7 @@
                 <img src="ridwanprev.jpg.webp" class="collage-img img-2" alt="Kolase 2">
                 <img src="kayudanaksaraprev.jpg.webp" class="collage-img img-3" alt="Kolase 3">
                 <img src="danuprev.jpg.webp" class="collage-img img-4" alt="Kolase 4">
-                <img src="kucing.jpg" class="collage-img img-5" alt="Kolase 5">
+                <img src="kucing.jpg.webp" class="collage-img img-5" alt="Kolase 5">
                 <img src="rafifprev.jpg.webp" class="collage-img img-6" alt="Kolase 6">
                 <img src="polarisprev.jpg.webp" class="collage-img img-7" alt="Kolase 7">
                 <img src="angelprev.jpg.webp" class="collage-img img-8" alt="Kolase 8">
@@ -1006,31 +1006,31 @@
             <div class="talent-grid">
                 
                 <div class="talent-card">
-                    <img src="ridwan.JPG" alt="Ridwan Hakim">
+                    <img src="ridwan.jpg.webp" alt="Ridwan Hakim">
                     <h4>Ridwan Hakim</h4>
                     <p>Si multi-tasking parah. Dari main gitar, bass, keyboard, cajon, dia sikat semuanya. Suaranya juga oke banget.</p>
                 </div>
                 
                 <div class="talent-card">
-                    <img src="ara.JPG" alt="Nurlailia Azzahra">
+                    <img src="ara.jpg.webp" alt="Nurlailia Azzahra">
                     <h4>Nurlailia Azzahra</h4>
                     <p>Vokal jazzy-nya bener-bener dah bikin melting. Cocok banget buat nemenin kalian overthinking sambil nyeduh kopi.</p>
                 </div>
                 
                 <div class="talent-card">
-                    <img src="danu.JPG" alt="Danu Brahmantya">
+                    <img src="danu.jpg.webp" alt="Danu Brahmantya">
                     <h4>Danu Brahmantya</h4>
                     <p>Penguasa senar sejati. Mau disuruh nge-lead pake gitar atau nge-groove di bass, langsung asik banget vibesnya.</p>
                 </div>
                 
                 <div class="talent-card">
-                    <img src="angel.JPG" alt="Angelina Patricia">
+                    <img src="angel.jpg.webp" alt="Angelina Patricia">
                     <h4>Angelina Patricia</h4>
                     <p>Queen of high notes! Narik nada setinggi ekspektasi keluarga tapi tetep effortless dan sopan banget di telinga.</p>
                 </div>
                 
                 <div class="talent-card">
-                    <img src="rafif.JPG" alt="Rafif Mahfuzhin">
+                    <img src="rafif.jpg.webp" alt="Rafif Mahfuzhin">
                     <h4>Rafif Mahfuzhin</h4>
                     <p>Suhu segala medan yang bisa carry lagu dengan metik gitar, betot bass, mainin tuts keyboard, sampe mukul cajon.</p>
                 </div>
@@ -1193,6 +1193,7 @@
                 <img src="jusantara.png" alt="Jus Antara">
                 <img src="olen.jpg" alt="Olen Cafe">
                 <img src="veteran.jpg" alt="Veteran 155 Cafe">
+                <img src="festive.png" alt="Festive Walk">
             </div>
         </section>
         
@@ -1294,24 +1295,27 @@
         }
 
         // Audio untuk tombol Hit Us Up
-        const hitUsUpBtn = document.getElementById('hitUsUpBtn');
-        const hitSound = new Audio('udah-siap-belomm.mp3');
-        
-        // Pastikan audio tidak looping
-        hitSound.loop = false;
+const hitUsUpBtn = document.getElementById('hitUsUpBtn');
+const hitSound = new Audio('udah-siap-belomm.mp3');
 
-        hitUsUpBtn.addEventListener('click', function(e) {
-            // Cek apakah audio sedang tidak diputar
-            // Ini mencegah suara menumpuk (no repeat/overlap) jika diklik berkali-kali
-            if (hitSound.paused) {
-                hitSound.play();
-            } else {
-                // (Opsional) Jika ingin mereset suara dari awal setiap kali diklik, 
-                // hapus if(hitSound.paused) dan gunakan:
-                // hitSound.currentTime = 0;
-                // hitSound.play();
-            }
-        });
+// Pastikan audio tidak looping
+hitSound.loop = false;
+
+// Variabel penanda untuk mencegah suara menumpuk jika diklik cepat
+let isWaiting = false;
+
+hitUsUpBtn.addEventListener('click', function(e) {
+    // Cek apakah audio tidak sedang diputar DAN tidak sedang menunggu delay
+    if (hitSound.paused && !isWaiting) {
+        isWaiting = true; // Tandai bahwa sistem sedang menghitung delay
+        
+        // Delay 0.5 detik (500 milidetik)
+        setTimeout(function() {
+            hitSound.play();
+            isWaiting = false; // Reset penanda setelah audio mulai diputar
+        }, 500);
+    }
+});
     </script>
 </body>
 </html>
