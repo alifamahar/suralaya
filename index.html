@@ -951,9 +951,10 @@
             <img src="logo.png" alt="Suralaya Logo" class="header-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         </a>
         <nav>
-            <a href="#home">Home</a>
+          
             
             <!-- Link yang disembunyikan di HP karena masuk ke Dropdown -->
+            <a href="#home" class="desktop-hide-mobile">Home</a>
             <a href="#talents" class="desktop-hide-mobile">Talents</a>
             <a href="#gallery" class="desktop-hide-mobile">Gallery</a>
             <a href="#roster" class="desktop-hide-mobile">Lineup</a>
@@ -962,6 +963,7 @@
             <div class="mobile-only-dropdown">
                 <button onclick="toggleDropdown()" class="drop-btn">Menu <i class="fa-solid fa-caret-down"></i></button>
                 <div id="dropdownContent" class="drop-content">
+                    <a href="#home" onclick="toggleDropdown()">Home</a>
                     <a href="#talents" onclick="toggleDropdown()">Talents</a>
                     <a href="#gallery" onclick="toggleDropdown()">Gallery</a>
                     <a href="#roster" onclick="toggleDropdown()">Lineup</a>
