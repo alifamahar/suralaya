@@ -115,13 +115,13 @@
             box-shadow: 0 0 15px rgba(212, 140, 65, 0.4);
         }
 
-         /* Dropdown Menu untuk Mobile */
+        /* Dropdown Menu untuk Mobile */
         .mobile-only-dropdown {
             display: none;
             position: relative;
         }
 
-            .drop-btn {
+        .drop-btn {
             background-color: var(--card-bg);
             color: var(--text-main);
             border: 1px solid var(--border-color);
@@ -167,7 +167,6 @@
         .drop-content.show {
             display: block;
         }
-            
 
         /* =========================================
            HERO SECTION
@@ -411,7 +410,7 @@
             border-radius: 16px;
             overflow: hidden;
             transition: all 0.3s ease;
-            cursor: pointer; /* Menandakan ini bisa diklik */
+            cursor: pointer; 
         }
         
         .gallery-card:hover {
@@ -426,7 +425,6 @@
             position: relative;
         }
 
-        /* Efek gelap transparan agar teks jelas terbaca */
         .gallery-img-wrapper::after {
             content: '';
             position: absolute;
@@ -443,7 +441,6 @@
             transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Styling teks di tengah foto */
         .gallery-overlay {
             position: absolute;
             top: 50%;
@@ -454,7 +451,7 @@
             text-align: center;
             z-index: 2;
             transition: opacity 0.4s ease;
-            pointer-events: none; /* Klik akan tembus ke card */
+            pointer-events: none; 
         }
 
         .gallery-overlay h4 {
@@ -473,19 +470,17 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.9);
         }
 
-        /* EFFECT SAAT DIKLIK (Class .zoomed) */
         .gallery-card.zoomed .gallery-img-wrapper img {
             transform: scale(1.5);
         }
 
         .gallery-card.zoomed .gallery-img-wrapper::after {
-            opacity: 0; /* Hilangkan gelap saat dizoom */
+            opacity: 0; 
         }
 
         .gallery-card.zoomed .gallery-overlay {
-            opacity: 0; /* Sembunyikan teks saat dizoom */
+            opacity: 0; 
         }
-
 
         /* =========================================
            ROSTER GRID
@@ -494,7 +489,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
         }
 
         .card {
@@ -513,7 +508,6 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
 
-        /* Thumbnail & Play Icon setup */
         .card-img-wrapper {
             position: relative;
             display: block;
@@ -581,7 +575,6 @@
             margin-bottom: 0;
         }
 
-        /* Styling "See Performances" di dalam gambar */
         .see-performance {
             position: absolute;
             bottom: 20px;
@@ -624,7 +617,7 @@
         #trusted-by {
             text-align: center;
             margin-top: 2rem;
-            padding-bottom: 2rem;
+            padding-bottom: 4rem;
         }
 
         .trusted-logos {
@@ -640,7 +633,8 @@
             height: 70px;
             max-width: 180px;
             object-fit: contain;
-            border-radius: 8px; /* Biar ujung JPG ga terlalu tajam */
+            border-radius: 8px; 
+            filter: grayscale(100%) opacity(60%);
             transition: all 0.4s ease;
             cursor: pointer;
         }
@@ -649,13 +643,14 @@
             filter: grayscale(0%) opacity(100%);
             transform: scale(1.1);
         }
-        
+
         /* =========================================
            CONTACT CTA SECTION
            ========================================= */
         #contact-cta {
-            margin-top: 7rem;
+            margin-top: 2rem;
             margin-bottom: 4rem;
+            padding: 0 1.5rem;
         }
 
         .cta-box {
@@ -701,6 +696,7 @@
         .cta-btn i {
             font-size: 1.4rem;
         }
+
         /* =========================================
            PRE-FOOTER & FOOTER
            ========================================= */
@@ -737,16 +733,6 @@
             display: block;
         }
         
-        .footer-logo-text {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--text-main);
-        }
-        
-        .footer-logo-text span {
-            color: var(--accent);
-        }
-
         .social-icons {
             display: flex;
             gap: 1rem;
@@ -865,10 +851,6 @@
 
         /* =========================================
            Responsive Mobile 
-           (Fix Navbar Berantakan)
-           ========================================= */
-        /* =========================================
-           Responsive Mobile 
            ========================================= */
         @media (max-width: 768px) {
             header {
@@ -970,10 +952,23 @@
         </a>
         <nav>
             <a href="#home">Home</a>
-            <a href="#talents">Talents</a>
-            <a href="#lineup">Lineup</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact-cta" class="nav-wa">Hit Us Up!</a>
+            
+            <!-- Link yang disembunyikan di HP karena masuk ke Dropdown -->
+            <a href="#talents" class="desktop-hide-mobile">Talents</a>
+            <a href="#gallery" class="desktop-hide-mobile">Gallery</a>
+            <a href="#roster" class="desktop-hide-mobile">Lineup</a>
+
+            <!-- Dropdown Menu khusus tampilan HP -->
+            <div class="mobile-only-dropdown">
+                <button onclick="toggleDropdown()" class="drop-btn">Menu <i class="fa-solid fa-caret-down"></i></button>
+                <div id="dropdownContent" class="drop-content">
+                    <a href="#talents" onclick="toggleDropdown()">Talents</a>
+                    <a href="#gallery" onclick="toggleDropdown()">Gallery</a>
+                    <a href="#roster" onclick="toggleDropdown()">Lineup</a>
+                </div>
+            </div>
+
+            <a href="https://wa.me/6283877948159" target="_blank" class="nav-wa">Hit Us Up!</a>
         </nav>
     </header>
 
@@ -1040,10 +1035,106 @@
             </div>
         </section>
 
-        
+        <!-- Our Gallery (Click to zoom) -->
+        <section id="gallery">
+            <h2 class="section-title">Our Gallery</h2>
+            <div class="gallery-grid">
+                
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="foto 01.jpg" alt="Penampilan di Galuh Mas Karawang">
+                        <div class="gallery-overlay">
+                            <h4>📍 Galuh Mas Karawang</h4>
+                            <p>6 Oktober 2023</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="foto 02.jpg" alt="Penampilan di Universitas Singaperbangsa Karawang">
+                        <div class="gallery-overlay">
+                            <h4>📍 Universitas Singaperbangsa Karawang</h4>
+                            <p>29 Mei 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="foto 03.jpg" alt="Penampilan di Veteran 155 Cafe Purwakarta">
+                        <div class="gallery-overlay">
+                            <h4>📍 Veteran 155 Cafe Purwakarta</h4>
+                            <p>30 Mei 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="foto 04.jpg" alt="Penampilan di Olen Cafe Karawang">
+                        <div class="gallery-overlay">
+                            <h4>📍 Olen Cafe Karawang</h4>
+                            <p>13 Juni 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="foto 05.jpg" alt="Penampilan di Jus Antara Store Karawang">
+                        <div class="gallery-overlay">
+                            <h4>📍 Jus Antara Store Karawang</h4>
+                            <p>27 Juni 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="foto 06.jpg" alt="Penampilan di Jus Antara Store Jababeka 4 Juli">
+                        <div class="gallery-overlay">
+                            <h4>📍 Jus Antara Store Jababeka</h4>
+                            <p>4 Juli 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="foto 07.jpg" alt="Penampilan di Jus Antara Store Jababeka 5 Juli">
+                        <div class="gallery-overlay">
+                            <h4>📍 Jus Antara Store Jababeka</h4>
+                            <p>5 Juli 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="foto 08.jpg" alt="Penampilan di Jus Antara Store Jababeka 25 Juli">
+                        <div class="gallery-overlay">
+                            <h4>📍 Jus Antara Store Jababeka</h4>
+                            <p>25 Juli 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="foto 09.jpg" alt="Penampilan di Jus Antara Store Jababeka 26 Juli">
+                        <div class="gallery-overlay">
+                            <h4>📍 Jus Antara Store Jababeka</h4>
+                            <p>26 Juli 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     
         <!-- Roster / Line Up -->
-        <section id="lineup">
+        <section id="roster">
             <h2 class="section-title">The Lineup</h2>
             <div class="roster-grid">
                 
@@ -1091,104 +1182,6 @@
 
             </div>
         </section>
-        <!-- Our Gallery (NEW SECTION - Click to zoom) -->
-        <section id="gallery">
-            <h2 class="section-title">Our Gallery</h2>
-            <div class="gallery-grid">
-                
-                <!-- JS inline onclick toggle class 'zoomed' buat jalanin efek klik -->
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="01.jpeg" alt="Penampilan di Festive Walk Galuh Mas Karawang">
-                        <div class="gallery-overlay">
-                            <h4>📍 Festive Walk Galuh Mas Karawang</h4>
-                            <p>6 Oktober 2023</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="02.png" alt="Penampilan di Universitas Singaperbangsa Karawang">
-                        <div class="gallery-overlay">
-                            <h4>📍 Universitas Singaperbangsa Karawang</h4>
-                            <p>29 Mei 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="03.png" alt="Penampilan di Veteran 155 Cafe Purwakarta">
-                        <div class="gallery-overlay">
-                            <h4>📍 Veteran 155 Cafe Purwakarta</h4>
-                            <p>30 Mei 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="04.png" alt="Penampilan di Olen Cafe Karawang">
-                        <div class="gallery-overlay">
-                            <h4>📍 Olen Cafe Karawang</h4>
-                            <p>13 Juni 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="06.jpeg" alt="Penampilan di Jus Antara Store Karawang">
-                        <div class="gallery-overlay">
-                            <h4>📍 Universitas Singaperbangsa Karawang</h4>
-                            <p>16 Juni 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="05.png" alt="Penampilan di Jus Antara Store Jababeka 4 Juli">
-                        <div class="gallery-overlay">
-                            <h4>📍 Jus Antara Store Karawang</h4>
-                            <p>27 Juni 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="07.jpeg" alt="Penampilan di Jus Antara Store Jababeka 5 Juli">
-                        <div class="gallery-overlay">
-                            <h4>📍 Jus Antara Store Jababeka</h4>
-                            <p>4 Juli 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="08.png" alt="Penampilan di Jus Antara Store Jababeka 25 Juli">
-                        <div class="gallery-overlay">
-                            <h4>📍 Jus Antara Store Jababeka</h4>
-                            <p>5 Juli 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="09.png" alt="Penampilan di Jus Antara Store Jababeka 26 Juli">
-                        <div class="gallery-overlay">
-                            <h4>📍 Jus Antara Store Jababeka</h4>
-                            <p>25 Juli 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
 
         <!-- Trusted By Section -->
         <section id="trusted-by">
@@ -1200,19 +1193,20 @@
                 <img src="veteran.jpg" alt="Veteran 155 Cafe">
             </div>
         </section>
+        
         <!-- Call to Action / Hubungi Kami -->
         <section id="contact-cta">
             <div class="cta-box">
-                <h2>Udah minat belom?</h2>
-                <p>Mau sekadar nanya-nanya pricelist, atur jadwal main, atau ngobrolin konsep perform bareng Suralaya? Jangan ragu buat klik tombol di bawah, kita langsung ngobrol di WhatsApp ya!</p>
+                <h2>Tertarik Kolaborasi?</h2>
+                <p>Mau sekadar nanya-nanya pricelist, atur jadwal main, atau ngobrolin konsep perform bareng Suralaya? Jangan ragu buat klik tombol di bawah, kita langsung ngobrol di WhatsApp!</p>
                 <a href="https://wa.me/6283877948159" target="_blank" class="btn btn-primary cta-btn">
                     <i class="fa-brands fa-whatsapp"></i> Chat Kita Sekarang
                 </a>
             </div>
         </section>
+        
     </div>
 
-    
     <!-- PRE-FOOTER (Contact, Location, Socials) -->
     <div class="pre-footer">
         <div class="footer-col">
@@ -1252,8 +1246,25 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT UNTUK MODAL -->
+    <!-- JAVASCRIPT UNTUK MODAL & DROPDOWN -->
     <script>
+        function toggleDropdown() {
+            document.getElementById("dropdownContent").classList.toggle("show");
+        }
+
+        // Tutup dropdown kalau user klik di luar area menu
+        window.onclick = function(event) {
+            if (!event.target.matches('.drop-btn') && !event.target.matches('.drop-btn *')) {
+                var dropdowns = document.getElementsByClassName("drop-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
         function openModal(videoSrc, driveLink) {
             const modal = document.getElementById('videoModal');
             const video = document.getElementById('modalVideo');
@@ -1278,13 +1289,6 @@
                 video.pause(); 
                 video.src = '';
             }, 300);
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('videoModal');
-            if (event.target == modal) {
-                closeModal();
-            }
         }
     </script>
 </body>
