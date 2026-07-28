@@ -115,6 +115,60 @@
             box-shadow: 0 0 15px rgba(212, 140, 65, 0.4);
         }
 
+         /* Dropdown Menu untuk Mobile */
+        .mobile-only-dropdown {
+            display: none;
+            position: relative;
+        }
+
+            .drop-btn {
+            background-color: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 0.9rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .drop-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--card-bg);
+            min-width: 140px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+            border: 1px solid var(--border-color);
+            z-index: 200;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .drop-content a {
+            color: var(--text-main);
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            margin: 0 !important;
+            text-align: left;
+        }
+
+        .drop-content a:hover {
+            background-color: var(--accent);
+            color: #120f0e;
+        }
+
+        .drop-content.show {
+            display: block;
+        }
+            
+
         /* =========================================
            HERO SECTION
            ========================================= */
@@ -813,26 +867,37 @@
            Responsive Mobile 
            (Fix Navbar Berantakan)
            ========================================= */
+        /* =========================================
+           Responsive Mobile 
+           ========================================= */
         @media (max-width: 768px) {
             header {
-                flex-direction: column;
-                gap: 1rem; /* Biar gap ga terlalu jauh di hp */
-                padding: 1rem;
+                flex-direction: row; /* Tetap sejajar horizontal di samping logo */
+                justify-content: space-between;
+                padding: 0.8rem 1rem;
             }
             nav {
                 display: flex;
-                flex-wrap: wrap; /* Izinkan elemen untuk turun baris dengan rapi */
-                justify-content: center;
                 align-items: center;
-                gap: 12px; /* Jarak antar link & tombol */
+                gap: 8px;
             }
-            nav a {
-                margin: 0; /* Hapus margin lama, diganti pakai gap */
+            /* Sembunyikan link satu-satu di mobile */
+            .desktop-hide-mobile {
+                display: none !important;
+            }
+            /* Tampilkan tombol dropdown khusus mobile */
+            .mobile-only-dropdown {
+                display: inline-block;
+            }
+            nav a:not(.nav-wa) {
+                margin-left: 0;
                 font-size: 0.9rem;
             }
             .nav-wa {
-                white-space: nowrap; /* WAJIB: Biar teks Hit Us Up! ga dipotong */
-                padding: 0.5rem 1rem; /* Sedikit lebih kecil dari versi desktop */
+                padding: 0.5rem 0.9rem;
+                font-size: 0.85rem;
+                white-space: nowrap;
+                margin-left: 0 !important;
             }
             
             .hero-container {
