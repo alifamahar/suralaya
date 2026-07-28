@@ -809,17 +809,32 @@
             width: auto;
         }
 
-        /* Responsive Mobile */
+        /* =========================================
+           Responsive Mobile 
+           (Fix Navbar Berantakan)
+           ========================================= */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: 1rem; /* Biar gap ga terlalu jauh di hp */
                 padding: 1rem;
             }
+            nav {
+                display: flex;
+                flex-wrap: wrap; /* Izinkan elemen untuk turun baris dengan rapi */
+                justify-content: center;
+                align-items: center;
+                gap: 12px; /* Jarak antar link & tombol */
+            }
             nav a {
-                margin: 0 0.5rem;
+                margin: 0; /* Hapus margin lama, diganti pakai gap */
                 font-size: 0.9rem;
             }
+            .nav-wa {
+                white-space: nowrap; /* WAJIB: Biar teks Hit Us Up! ga dipotong */
+                padding: 0.5rem 1rem; /* Sedikit lebih kecil dari versi desktop */
+            }
+            
             .hero-container {
                 flex-direction: column;
                 text-align: center;
@@ -851,10 +866,22 @@
             #talents {
                 padding: 3rem 1.5rem;
             }
-            /* Ubah Grid Gallery jadi 1 kolom di HP */
             .gallery-grid {
                 grid-template-columns: 1fr; 
                 gap: 1.5rem;
+            }
+            .trusted-logos {
+                gap: 2rem;
+            }
+            .trusted-logos img {
+                height: 50px;
+                max-width: 120px;
+            }
+            .cta-box {
+                padding: 3rem 1.5rem;
+            }
+            .cta-box h2 {
+                font-size: 2rem;
             }
             .pre-footer {
                 grid-template-columns: 1fr;
