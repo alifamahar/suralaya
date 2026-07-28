@@ -634,7 +634,6 @@
             max-width: 180px;
             object-fit: contain;
             border-radius: 8px; 
-            filter: grayscale(100%) opacity(60%);
             transition: all 0.4s ease;
             cursor: pointer;
         }
@@ -956,8 +955,9 @@
             <!-- Link yang disembunyikan di HP karena masuk ke Dropdown -->
             <a href="#home" class="desktop-hide-mobile">Home</a>
             <a href="#talents" class="desktop-hide-mobile">Talents</a>
+             <a href="#lineup" class="desktop-hide-mobile">Lineup</a>
             <a href="#gallery" class="desktop-hide-mobile">Gallery</a>
-            <a href="#roster" class="desktop-hide-mobile">Lineup</a>
+           
 
             <!-- Dropdown Menu khusus tampilan HP -->
             <div class="mobile-only-dropdown">
@@ -965,8 +965,9 @@
                 <div id="dropdownContent" class="drop-content">
                     <a href="#home" onclick="toggleDropdown()">Home</a>
                     <a href="#talents" onclick="toggleDropdown()">Talents</a>
+                    <a href="#lineup" onclick="toggleDropdown()">Lineup</a>
                     <a href="#gallery" onclick="toggleDropdown()">Gallery</a>
-                    <a href="#roster" onclick="toggleDropdown()">Lineup</a>
+                    
                 </div>
             </div>
 
@@ -1037,106 +1038,7 @@
             </div>
         </section>
 
-        <!-- Our Gallery (Click to zoom) -->
-        <section id="gallery">
-            <h2 class="section-title">Our Gallery</h2>
-            <div class="gallery-grid">
-                
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="foto 01.jpg" alt="Penampilan di Galuh Mas Karawang">
-                        <div class="gallery-overlay">
-                            <h4>📍 Galuh Mas Karawang</h4>
-                            <p>6 Oktober 2023</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="foto 02.jpg" alt="Penampilan di Universitas Singaperbangsa Karawang">
-                        <div class="gallery-overlay">
-                            <h4>📍 Universitas Singaperbangsa Karawang</h4>
-                            <p>29 Mei 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="foto 03.jpg" alt="Penampilan di Veteran 155 Cafe Purwakarta">
-                        <div class="gallery-overlay">
-                            <h4>📍 Veteran 155 Cafe Purwakarta</h4>
-                            <p>30 Mei 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="foto 04.jpg" alt="Penampilan di Olen Cafe Karawang">
-                        <div class="gallery-overlay">
-                            <h4>📍 Olen Cafe Karawang</h4>
-                            <p>13 Juni 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="foto 05.jpg" alt="Penampilan di Jus Antara Store Karawang">
-                        <div class="gallery-overlay">
-                            <h4>📍 Jus Antara Store Karawang</h4>
-                            <p>27 Juni 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="foto 06.jpg" alt="Penampilan di Jus Antara Store Jababeka 4 Juli">
-                        <div class="gallery-overlay">
-                            <h4>📍 Jus Antara Store Jababeka</h4>
-                            <p>4 Juli 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="foto 07.jpg" alt="Penampilan di Jus Antara Store Jababeka 5 Juli">
-                        <div class="gallery-overlay">
-                            <h4>📍 Jus Antara Store Jababeka</h4>
-                            <p>5 Juli 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="foto 08.jpg" alt="Penampilan di Jus Antara Store Jababeka 25 Juli">
-                        <div class="gallery-overlay">
-                            <h4>📍 Jus Antara Store Jababeka</h4>
-                            <p>25 Juli 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
-                    <div class="gallery-img-wrapper">
-                        <img src="foto 09.jpg" alt="Penampilan di Jus Antara Store Jababeka 26 Juli">
-                        <div class="gallery-overlay">
-                            <h4>📍 Jus Antara Store Jababeka</h4>
-                            <p>26 Juli 2026</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    
-        <!-- Roster / Line Up -->
-        <section id="roster">
+       <section id="lineup">
             <h2 class="section-title">The Lineup</h2>
             <div class="roster-grid">
                 
@@ -1179,6 +1081,104 @@
                         <span class="badge">DUO</span>
                         <h3>Kayu & Aksara</h3>
                         <p>(Ridwan & Ara)</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- Our Gallery (NEW SECTION - Click to zoom) -->
+        <section id="gallery">
+            <h2 class="section-title">Our Gallery</h2>
+            <div class="gallery-grid">
+                
+                <!-- JS inline onclick toggle class 'zoomed' buat jalanin efek klik -->
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="01.jpeg" alt="Penampilan di Festive Walk Galuh Mas Karawang">
+                        <div class="gallery-overlay">
+                            <h4>📍 Festive Walk Galuh Mas Karawang</h4>
+                            <p>6 Oktober 2023</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="02.png" alt="Penampilan di Universitas Singaperbangsa Karawang">
+                        <div class="gallery-overlay">
+                            <h4>📍 Universitas Singaperbangsa Karawang</h4>
+                            <p>29 Mei 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="03.png" alt="Penampilan di Veteran 155 Cafe Purwakarta">
+                        <div class="gallery-overlay">
+                            <h4>📍 Veteran 155 Cafe Purwakarta</h4>
+                            <p>30 Mei 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="04.png" alt="Penampilan di Olen Cafe Karawang">
+                        <div class="gallery-overlay">
+                            <h4>📍 Olen Cafe Karawang</h4>
+                            <p>13 Juni 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="06.jpeg" alt="Penampilan di Jus Antara Store Karawang">
+                        <div class="gallery-overlay">
+                            <h4>📍 Universitas Singaperbangsa Karawang</h4>
+                            <p>16 Juni 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="05.png" alt="Penampilan di Jus Antara Store Jababeka 4 Juli">
+                        <div class="gallery-overlay">
+                            <h4>📍 Jus Antara Store Karawang</h4>
+                            <p>27 Juni 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="07.jpeg" alt="Penampilan di Jus Antara Store Jababeka 5 Juli">
+                        <div class="gallery-overlay">
+                            <h4>📍 Jus Antara Store Jababeka</h4>
+                            <p>4 Juli 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="08.png" alt="Penampilan di Jus Antara Store Jababeka 25 Juli">
+                        <div class="gallery-overlay">
+                            <h4>📍 Jus Antara Store Jababeka</h4>
+                            <p>5 Juli 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-card" onclick="this.classList.toggle('zoomed')">
+                    <div class="gallery-img-wrapper">
+                        <img src="09.png" alt="Penampilan di Jus Antara Store Jababeka 26 Juli">
+                        <div class="gallery-overlay">
+                            <h4>📍 Jus Antara Store Jababeka</h4>
+                            <p>25 Juli 2026</p>
+                        </div>
                     </div>
                 </div>
 
