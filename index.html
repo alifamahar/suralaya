@@ -387,11 +387,11 @@
             opacity: 0.9;
         }
 
-        .play-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
+       play-icon {
+    position: absolute;
+    top: 40%; /* Mengubah dari 50% menjadi 40% */
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
             font-size: 3.5rem;
             color: var(--accent);
             text-shadow: 0 5px 15px rgba(0,0,0,0.9);
@@ -438,24 +438,45 @@
         }
 
         /* Link Text "See Performances" */
-        .see-performance {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            margin-top: 1.5rem;
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: var(--accent);
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-        }
+       /* Styling "See Performances" di dalam gambar */
+.see-performance {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #fff;
+    background-color: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    
+    /* Disembunyikan awal */
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+}
 
-        .see-performance:hover {
-            color: var(--text-main);
-            text-decoration: underline;
-            text-underline-offset: 5px;
-        }
+/* Tampilkan saat card di-hover */
+.card:hover .see-performance {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Effect tambahan saat mouse mengarah tepat ke tombolnya */
+.card-img-wrapper:hover .see-performance {
+    background-color: var(--text-main);
+    color: #120f0e;
+}
 
         /* =========================================
            PRE-FOOTER & FOOTER
@@ -682,58 +703,58 @@
         </section>
     
         <!-- Roster / Line Up -->
-        <section id="roster">
-            <h2 class="section-title">The Lineup</h2>
-            <div class="roster-grid">
-                
-                <!-- Ruang Rahasia -->
-                <div class="card">
-                    <a href="https://drive.google.com/drive/folders/1-ZJoVRzgK5g1d4cL-MVAWD9XQLUcqJ8K?usp=drive_link" target="_blank" class="card-img-wrapper">
-                        <img src="ruangrahasia.JPG" alt="Foto Ruang Rahasia">
-                        <div class="play-icon">▶</div>
-                    </a>
-                    <div class="card-content">
-                        <a href="https://drive.google.com/drive/folders/1-ZJoVRzgK5g1d4cL-MVAWD9XQLUcqJ8K?usp=drive_link" target="_blank" class="see-performance">See performances ↗</a>
-                        <span class="badge">BAND</span>
-                        <h3>Ruang Rahasia</h3>
-                        <p>(Angel, Ara, Danu, Rafif, Ridwan)</p>
-                        
-                    </div>
-                </div>
-
-                <!-- Polaris -->
-                <div class="card">
-                    <a href="https://drive.google.com/drive/folders/16fRdOY-Phlx8DsasJx1PiNvnITVgPORx?usp=drive_link" target="_blank" class="card-img-wrapper">
-                        <img src="polaris.jpg" alt="Foto Polaris">
-                        <div class="play-icon">▶</div>
-                    </a>
-                    <div class="card-content">
-                        <a href="https://drive.google.com/drive/folders/16fRdOY-Phlx8DsasJx1PiNvnITVgPORx?usp=drive_link" target="_blank" class="see-performance">See performances ↗</a>
-                        <span class="badge">DUO</span>
-                        <h3>Polaris</h3>
-                        <p>(Angel & Rafif)</p>
-                        
-                    </div>
-                </div>
-
-                <!-- Kayu dan Aksara -->
-                <div class="card">
-                    <a href="https://drive.google.com/drive/folders/1XruwUffp-j9UXFRqm095cV15sRTN2zs8?usp=drive_link" target="_blank" class="card-img-wrapper">
-                        <img src="kayudanaksara.jpeg" alt="Foto Kayu dan Aksara">
-                        <div class="play-icon">▶</div>
-                    </a>
-                    <div class="card-content">
-                        <a href="https://drive.google.com/drive/folders/1XruwUffp-j9UXFRqm095cV15sRTN2zs8?usp=drive_link" target="_blank" class="see-performance">See performances ↗</a>
-                        <span class="badge">DUO</span>
-                        <h3>Kayu & Aksara</h3>
-                        <p>(Ridwan & Ara)</p>
-                        
-                    </div>
-                </div>
-
+        <!-- Roster / Line Up -->
+<section id="roster">
+    <h2 class="section-title">The Lineup</h2>
+    <div class="roster-grid">
+        
+        <!-- Ruang Rahasia -->
+        <div class="card">
+            <a href="https://drive.google.com/drive/folders/1-ZJoVRzgK5g1d4cL-MVAWD9XQLUcqJ8K?usp=drive_link" target="_blank" class="card-img-wrapper">
+                <img src="ruangrahasia.JPG" alt="Foto Ruang Rahasia">
+                <div class="play-icon">▶</div>
+                <!-- DIPINDAHKAN KE SINI -->
+                <span class="see-performance">See performances ↗</span>
+            </a>
+            <div class="card-content">
+                <span class="badge">BAND</span>
+                <h3>Ruang Rahasia</h3>
+                <p>(Angel, Ara, Danu, Rafif, Ridwan)</p>
             </div>
-        </section>
+        </div>
 
+        <!-- Polaris -->
+        <div class="card">
+            <a href="https://drive.google.com/drive/folders/16fRdOY-Phlx8DsasJx1PiNvnITVgPORx?usp=drive_link" target="_blank" class="card-img-wrapper">
+                <img src="polaris.jpg" alt="Foto Polaris">
+                <div class="play-icon">▶</div>
+                <!-- DIPINDAHKAN KE SINI -->
+                <span class="see-performance">See performances ↗</span>
+            </a>
+            <div class="card-content">
+                <span class="badge">DUO</span>
+                <h3>Polaris</h3>
+                <p>(Angel & Rafif)</p>
+            </div>
+        </div>
+
+        <!-- Kayu dan Aksara -->
+        <div class="card">
+            <a href="https://drive.google.com/drive/folders/1XruwUffp-j9UXFRqm095cV15sRTN2zs8?usp=drive_link" target="_blank" class="card-img-wrapper">
+                <img src="kayudanaksara.jpeg" alt="Foto Kayu dan Aksara">
+                <div class="play-icon">▶</div>
+                <!-- DIPINDAHKAN KE SINI -->
+                <span class="see-performance">See performances ↗</span>
+            </a>
+            <div class="card-content">
+                <span class="badge">DUO</span>
+                <h3>Kayu & Aksara</h3>
+                <p>(Ridwan & Ara)</p>
+            </div>
+        </div>
+
+    </div>
+</section>
     </div>
 
     <!-- PRE-FOOTER (Contact, Location, Socials) -->
